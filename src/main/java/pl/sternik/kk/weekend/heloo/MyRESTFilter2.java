@@ -1,4 +1,4 @@
-package pl.sternik.kk.weekend;
+package pl.sternik.kk.weekend.heloo;
 
 import java.io.IOException;
 import java.util.Enumeration;
