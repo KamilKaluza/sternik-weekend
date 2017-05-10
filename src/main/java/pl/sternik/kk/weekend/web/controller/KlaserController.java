@@ -46,6 +46,11 @@ public class KlaserController {
     public List<Moneta> populateCoinsToSell() {
         return this.klaserService.findAllToSell();
     }
+    
+    @ModelAttribute("coinsDublet")
+    public List<Moneta> populateCoinsDublet() {
+        return this.klaserService.findAllDublet();
+    }
 
     @ModelAttribute("coinsLast3")
     public List<Moneta> populateLast3Coins() {
@@ -66,6 +71,10 @@ public class KlaserController {
     @RequestMapping("/tosell")
     public String showToSellPage() {
         return "tosell";
+    }
+    @RequestMapping("/dublety")
+    public String showDubletPage() {
+        return "dublety";
     }
 
 }
