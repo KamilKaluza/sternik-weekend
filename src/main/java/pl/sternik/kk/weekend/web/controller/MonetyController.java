@@ -1,4 +1,4 @@
-package pl.sternik.kk.weekend.web.controlers;
+package pl.sternik.kk.weekend.web.controller;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +24,6 @@ import pl.sternik.kk.weekend.entities.Moneta;
 import pl.sternik.kk.weekend.entities.Status;
 import pl.sternik.kk.weekend.services.KlaserService;
 import pl.sternik.kk.weekend.services.NotificationService;
-
 
 @Controller
 public class MonetyController {
@@ -42,7 +40,7 @@ public class MonetyController {
         return Arrays.asList(Status.ALL);
     }
 
-    @GetMapping(value = "/monety/{id}")
+    @RequestMapping(value = "/monety/{id}", method = RequestMethod.GET)
     public String view(@PathVariable("id") Long id, final ModelMap model) {
         Optional<Moneta> result;
         result = klaserService.findById(id);

@@ -1,6 +1,5 @@
 package pl.sternik.kk.weekend.entities;
 
-
 public enum Status {
     
     NOWA("Nowa"), 

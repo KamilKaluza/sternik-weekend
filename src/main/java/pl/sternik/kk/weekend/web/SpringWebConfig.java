@@ -17,6 +17,7 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import pl.sternik.kk.weekend.web.conversion.DateFormatter;
 
 @Configuration
 @EnableWebMvc
@@ -62,16 +63,16 @@ public class SpringWebConfig
         return messageSource;
     }
 
-//    @Override
-//    public void addFormatters(final FormatterRegistry registry) {
-//        super.addFormatters(registry);
-//        registry.addFormatter(dateFormatter());
-//    }
+    @Override
+    public void addFormatters(final FormatterRegistry registry) {
+        super.addFormatters(registry);
+        registry.addFormatter(dateFormatter());
+    }
 
-//    @Bean
-//    public DateFormatter dateFormatter() {
-//        return new DateFormatter();
-//    }
+    @Bean
+    public DateFormatter dateFormatter() {
+        return new DateFormatter();
+    }
 
 
 

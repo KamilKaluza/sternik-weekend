@@ -1,4 +1,4 @@
-package pl.sternik.kk.weekend.web.controlers;
+package pl.sternik.kk.weekend.web.controller;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.sternik.kk.weekend.entities.Moneta;
+import pl.sternik.kk.weekend.entities.Status;
 import pl.sternik.kk.weekend.services.KlaserService;
 import pl.sternik.kk.weekend.services.NotificationService;
-
 
 @Controller
 public class KlaserController {
@@ -32,25 +32,25 @@ public class KlaserController {
     @Autowired
     private NotificationService notificationService;
 
-//    @ModelAttribute("statusyAll")
-//    public List<Status> populateStatusy() {
-//        return Arrays.asList(Status.ALL);
-//    }
+    @ModelAttribute("statusyAll")
+    public List<Status> populateStatusy() {
+        return Arrays.asList(Status.ALL);
+    }
 
     @ModelAttribute("coinsAll")
     public List<Moneta> populateCoins() {
         return this.klaserService.findAll();
     }
 
-//    @ModelAttribute("coinsToSell")
-//    public List<Moneta> populateCoinsToSell() {
-//        return this.klaserService.findAllToSell();
-//    }
+    @ModelAttribute("coinsToSell")
+    public List<Moneta> populateCoinsToSell() {
+        return this.klaserService.findAllToSell();
+    }
 
-//    @ModelAttribute("coinsLast3")
-//    public List<Moneta> populateLast3Coins() {
-//        return this.klaserService.findLatest3();
-//    }
+    @ModelAttribute("coinsLast3")
+    public List<Moneta> populateLast3Coins() {
+        return this.klaserService.findLatest3();
+    }
 
     @RequestMapping({ "/", "/index" })
     public String index(Model model) {

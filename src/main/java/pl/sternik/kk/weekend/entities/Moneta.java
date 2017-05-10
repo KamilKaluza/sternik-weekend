@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 //@Entity
-//@XmlRootElement
+@XmlRootElement
 public class Moneta {
 
 //    @NotNull
