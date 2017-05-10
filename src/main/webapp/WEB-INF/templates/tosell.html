@@ -10,8 +10,46 @@
 
   <header th:replace="layout :: site-header" />
 
-  <h1>Do sprzedania!</h1>
-  <p>tu bedzie</p>
+  <div>
+    <h2 th:text="#{title.list}" style="display: inline;">Lista monet do sprzedania</h2>
+  </div>
+  
+  <div class="listaMonet" th:unless="${#lists.isEmpty(coinsToSell)}">
+    <table>
+      <thead>
+        <tr>
+          <th th:text="#{klaser.numerKatalogowy}">numerKatalogowy</th>
+          <th th:text="#{klaser.nominal}">nominal</th>
+          <th th:text="#{klaser.opis}">opis</th>
+          <th th:text="#{klaser.waluta}">waluta</th>
+          <th th:text="#{klaser.cenaNabycia}">cenaNabycia</th>
+          <th th:text="#{klaser.dataNabycia}">dataNabycia</th>
+          <th th:text="#{klaser.krajPochodzenia}">krajPochodzenia</th>
+          <th th:text="#{klaser.status}">status</th>
+          <th th:text="#{klaser.operacje}">operacje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="coin : ${coinsToSell}">
+          <form action="#" th:action="@{/tosell}" th:object="${coin}" method="post">
+          <td th:text="${coin.numerKatalogowy}">1</td>
+          <td th:text="${coin.nominal}">100</td>
+          <td th:text="${coin.opis}">Długi opis</td>
+          <td th:text="${coin.waluta}">zł</td>
+          <td th:text="${{coin.cenaNabycia}}">5.12</td>
+          <td th:text="${{coin.dataNabycia}}">2011/13/01</td>
+          <td th:text="${coin.krajPochodzenia}">Polska</td>
+          <td th:text="#{${'klaser.status.' + coin.status}}">Nowa</td>
+          <td>
+            <button type="submit" name="remove" th:value="${coin.numerKatalogowy}" th:text="#{klaser.remove}">Dell</button>
+            
+            <a href="moneta.html" th:href="@{|/tosell/${coin.numerKatalogowy}|}" ><button type="button" th:text="#{klaser.edit}">Editt</button></a>              
+          </td>
+          </form>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <footer th:replace="layout :: site-footer" />
 
