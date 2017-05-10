@@ -10,6 +10,8 @@ public interface KlaserService {
     List<Moneta> findAll();
 
     List<Moneta> findAllToSell();
+    
+    List<Moneta> findAllDublet();
 
     Optional<Moneta> findById(Long id);
 

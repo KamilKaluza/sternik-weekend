@@ -83,4 +83,10 @@ public class KlaserServiceJ8Impl implements KlaserService {
         return monety.findAll().stream().filter(p -> Objects.equals(p.getStatus(), Status.DO_SPRZEDANIA))
                 .collect(Collectors.toList());
     }
+    
+    @Override
+    public List<Moneta> findAllDublet() {
+        return monety.findAll().stream().filter(p -> Objects.equals(p.getStatus(), Status.DUBLET))
+                .collect(Collectors.toList());
+    }
 }

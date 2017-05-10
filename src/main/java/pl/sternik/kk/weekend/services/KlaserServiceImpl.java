@@ -31,6 +31,11 @@ public class KlaserServiceImpl implements KlaserService {
     public List<Moneta> findAllToSell() {
         return bazaDanych.findAll();
     }
+    
+    @Override
+    public List<Moneta> findAllDublet() {
+        return bazaDanych.findAll();
+    }
 
     @Override
     public Optional<Moneta> findById(Long id) {
