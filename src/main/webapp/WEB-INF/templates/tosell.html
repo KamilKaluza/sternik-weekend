@@ -40,10 +40,7 @@
           <td th:text="${{coin.dataNabycia}}">2011/13/01</td>
           <td th:text="${coin.krajPochodzenia}">Polska</td>
           <td th:text="#{${'klaser.status.' + coin.status}}">Nowa</td>
-          <td>
-            <button type="submit" name="remove" th:value="${coin.numerKatalogowy}" th:text="#{klaser.remove}">Dell</button>
-            
-            <a href="moneta.html" th:href="@{|/tosell/${coin.numerKatalogowy}|}" ><button type="button" th:text="#{klaser.edit}">Editt</button></a>              
+             
           </td>
           </form>
         </tr>
