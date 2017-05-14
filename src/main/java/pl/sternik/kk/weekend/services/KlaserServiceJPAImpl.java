@@ -55,7 +55,7 @@ public class KlaserServiceJPAImpl implements KlaserService {
 
     @Override
     public Optional<Boolean> deleteById(Long id) {
-        bazaDanych.delete(id.intValue());
+        bazaDanych.delete(id);
         return Optional.of(Boolean.TRUE);
     }
 

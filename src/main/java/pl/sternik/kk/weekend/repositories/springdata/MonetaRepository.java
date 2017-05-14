@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import pl.sternik.kk.weekend.entities.Moneta;
 
 @Repository
-public interface MonetaRepository extends JpaRepository<Moneta, Integer>{
+public interface MonetaRepository extends JpaRepository<Moneta, Long>{
     public Moneta findByNumerKatalogowy(Long id);
 }
