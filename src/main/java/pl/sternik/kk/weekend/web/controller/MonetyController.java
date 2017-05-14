@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,7 +30,7 @@ import pl.sternik.kk.weekend.services.NotificationService;
 public class MonetyController {
 
     @Autowired
-    // @Qualifier("spring")
+    @Qualifier("spring")
     private KlaserService klaserService;
 
     @Autowired
@@ -71,7 +72,7 @@ public class MonetyController {
     }
 
     @RequestMapping(value = "/monety", params = { "save" }, method = RequestMethod.POST)
-    public String saveMoneta(Moneta moneta, BindingResult bindingResult, ModelMap model) {
+    public String saveMoneta(@Valid Moneta moneta, BindingResult bindingResult, ModelMap model) {
 
         if (bindingResult.hasErrors()) {
             notifyService.addErrorMessage("Please fill the form correctly!");
@@ -87,8 +88,9 @@ public class MonetyController {
     }
 
     @RequestMapping(value = "/monety", params = { "create" }, method = RequestMethod.POST)
-    public String createMoneta(Moneta moneta, BindingResult bindingResult, ModelMap model) {
+    public String createMoneta(@Valid Moneta moneta, BindingResult bindingResult, ModelMap model) {
         if (bindingResult.hasErrors()) {
+        	//model.addAttribute("Mym, attributeValue)
             notifyService.addErrorMessage("Please fill the form correctly!");
             return "moneta";
         }
