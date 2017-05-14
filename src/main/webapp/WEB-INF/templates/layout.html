@@ -17,11 +17,11 @@
     <a href="tosell.html" th:href="@{/tosell}">Monety do sprzedania</a>
     <a href="dublety.html" th:href="@{/dublety}">Dublety</a>
     <a href="moneta.html" th:href="@{/monety/create}">Dodaj monetę</a>
-   <!--  Zalogowany: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>  
+    Zalogowany: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>  
     <form th:action="@{/wyloguj}" method="POST" style="display: inline">
         <input type=submit class="link" value="Wyloguj"/>
     </form>
-    -->    
+       
     <ul id="messages">
       <li th:each="msg : ${MyMessages}" th:text="${msg.text}"
            th:class="${#strings.toLowerCase(msg.type)}">
